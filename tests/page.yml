@@ -1,0 +1,36 @@
+---
+- name: Create a page
+  tombayo.wikijs.page:
+    api_url: "{{ wikijs_api_url }}"
+    api_key: "{{ wikijs_api_key }}"
+    path: testing/testpage
+    title: My page about a Topic
+    description: This page contains information about the Topic.
+    content: |
+      # Topic
+      This is a markdown-formatted document describing the Topic.
+
+  delegate_to: localhost
+  register: my_new_page
+
+- debug:
+  msg: "The ID of my new page is: {{ my_new_page.page.id }}"
+
+- name: Update a page
+  tombayo.wikijs.page:
+    api_url: "{{ wikijs_api_url }}"
+    api_key: "{{ wikijs_api_key }}"
+    id: my_new_page.page.id
+    path: testing/testpage
+    title: My page about a Topic
+    description: This page changed the information about the Topic.
+    content: |
+      # Topic
+      This is a markdown-formatted document describing the Topic.
+      Now different than when initially created.
+
+  delegate_to: localhost
+  register: my_changed_page
+
+- debug:
+  msg: "The ID of the changed page is: {{ my_new_page.page.id }}"

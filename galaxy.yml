@@ -1,0 +1,17 @@
+---
+namespace: tombayo
+name: wikijs
+version: 0.0.1
+readme: README.md
+authors:
+  - Tom Andre Munkhaug (github.com/tombayo)
+description: Ansible Collection to interact with Requarks' Wiki.js
+license_file: LICENSE
+tags:
+  - wikijs
+  - wiki
+repository: https://github.com/tombayo/tombayo.wikijs
+homepage: https://github.com/tombayo/tombayo.wikijs
+issues: https://github.com/tombayo/tombayo.wikijs/issues
+build_ignore:
+  - .gitignore
